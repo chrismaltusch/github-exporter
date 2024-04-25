@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name:  gh-exporter
 spec:
-  replicas: 1
+  replicas: 1 #number of pods
   selector:
     matchLabels:
       run:  gh-exporter
@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
       - name: gh-exporter
-        image: docker.io/anaisurlichs/gh-exporter:0.0.1
+        image: docker.io/cmaltusch/gh-exporter:latest
         env:
         - name: REPOS
-          value: "100daysofkubernetes/100DaysOfKubernetes"
+          value: "cmaltusch/advent-of-code"
         - name: GITHUB_TOKEN
           value: "test"
         ports:
